@@ -30,7 +30,7 @@ public class ToDoListController {
         toDoListServer.insertToDoListes(toDoListes);
     }
 
-    @PutMapping
+    @PutMapping("{id}")
     public void updateToDoListById(@PathVariable Integer id, @RequestBody ToDoListes toDoListes){
         toDoListServer.updateToDoListById(id, toDoListes);
     }

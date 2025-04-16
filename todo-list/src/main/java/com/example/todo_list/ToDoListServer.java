@@ -30,8 +30,8 @@ public class ToDoListServer {
     public void updateToDoListById(Integer id, ToDoListes updates) {
        ToDoListes toDoListes = todolistRepository.findById(id)
                .orElseThrow(()->new IllegalStateException(id + "not found"));
-       toDoListes.setTask_name(updates.getTask_name());
        toDoListes.setTask_owners_name(updates.getTask_owners_name());
+        toDoListes.setTask_name(updates.getTask_name());
         todolistRepository.save(toDoListes);
     }
 }
