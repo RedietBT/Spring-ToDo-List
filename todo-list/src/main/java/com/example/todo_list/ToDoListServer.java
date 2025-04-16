@@ -34,4 +34,14 @@ public class ToDoListServer {
         toDoListes.setTask_name(updates.getTask_name());
         todolistRepository.save(toDoListes);
     }
+
+    public void DeleteToDoListById(Integer id) {
+      boolean exists = todolistRepository.existsById(id);
+      if (exists){
+          todolistRepository.deleteById(id);
+      }
+      else {
+          throw new IllegalStateException(id + "dose not exiast");
+      }
+    }
 }

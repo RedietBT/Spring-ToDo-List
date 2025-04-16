@@ -34,4 +34,9 @@ public class ToDoListController {
     public void updateToDoListById(@PathVariable Integer id, @RequestBody ToDoListes toDoListes){
         toDoListServer.updateToDoListById(id, toDoListes);
     }
+
+    @DeleteMapping("{id}")
+    public void DeleteToDoListById(@PathVariable Integer id){
+        toDoListServer.DeleteToDoListById(id);
+    }
 }
