@@ -29,4 +29,9 @@ public class ToDoListController {
     public void insertToDoListes(@RequestBody ToDoListes toDoListes){
         toDoListServer.insertToDoListes(toDoListes);
     }
+
+    @PutMapping
+    public void updateToDoListById(@PathVariable Integer id, @RequestBody ToDoListes toDoListes){
+        toDoListServer.updateToDoListById(id, toDoListes);
+    }
 }
