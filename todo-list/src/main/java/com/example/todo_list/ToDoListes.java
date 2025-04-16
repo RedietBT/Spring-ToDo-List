@@ -1,10 +1,9 @@
 package com.example.todo_list;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
+import javax.xml.crypto.Data;
+import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
@@ -15,16 +14,15 @@ public class ToDoListes {
   private   Integer id;
   private   String task_owners_name;
   private   String task_name;
-  private   String task_submition_date;
+  private   LocalDate task_submition_date;
 
-    public ToDoListes() {
+
+    @PrePersist
+    protected void onCreate() {
+        this.task_submition_date = LocalDate.now();
     }
 
-    public ToDoListes(Integer id, String task_owners_name, String task_name, String task_submition_date) {
-        this.id = id;
-        this.task_owners_name = task_owners_name;
-        this.task_name = task_name;
-        this.task_submition_date = task_submition_date;
+    public ToDoListes() {
     }
 
     public Integer getId() {
@@ -51,11 +49,11 @@ public class ToDoListes {
         this.task_name = task_name;
     }
 
-    public String getTask_submition_date() {
+    public LocalDate getTask_submition_date() {
         return task_submition_date;
     }
 
-    public void setTask_submition_date(String task_submition_date) {
+    public void setTask_submition_date(LocalDate task_submition_date) {
         this.task_submition_date = task_submition_date;
     }
 
